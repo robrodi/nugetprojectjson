@@ -6,7 +6,7 @@
 Param
 (
     [alias("f")]
-	[string] $TargetFramework = "net4",
+	[string] $TargetFramework = "net451",
     [alias("r")]
     [switch]
     $redo
@@ -36,8 +36,7 @@ Get-ChildItem -path '.' -Recurse -Include $PackagesConfigFileName |
     "' + $TargetFramework + '": {}
   },
     "runtimes":  {
-        "win-anycpu": {},
-        "win": {}
+        "win-x64": {}
     }
 }' | Out-File $ProjectFilePath -Append
 		Rename-Item -Path $PackageFilePath -NewName 'packages_old.config'
